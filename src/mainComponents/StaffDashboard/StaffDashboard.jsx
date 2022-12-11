@@ -10,7 +10,8 @@ const StaffDashboard = () => {
   const [data, setData] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [showInputfield, setShowInpuField] = useState(true);
-  const [serialNumberData, setSerialNumberData] = useState([]);
+  const [serialNumberData, setSerialNumberData] = useState([]); 
+  const [invalidInput, setInvalidInput] = useState(false);
   const [showQrCode, setShowQrCode] = useState(false);
   const headerExclusions = ['guid', 'id'];
   const keys =
@@ -18,7 +19,7 @@ const StaffDashboard = () => {
     Object.keys(data[0]).filter((el) => {
       return headerExclusions.indexOf(el) < 0;
     });
-
+  const customerObj = data.filter((c) => c.serial_number === inputValue); 
   useEffect(() => {
     fetch('/data.json')
       .then((res) => {
@@ -28,14 +29,22 @@ const StaffDashboard = () => {
         setData(data);
       });
   }, []);
-  const onEnterHandler = () => {
-    setShowQrCode(true);
+  const onEnterHandler = () => { 
+    if(customerObj.length > 0) {
+    setShowQrCode(true);   
+    setInvalidInput(false)
+    }
+    else { 
+    setShowQrCode(false);
+    setInvalidInput(true); 
+    }
+    
   };
   const onSearchHandler = () => {
-    const customerObj = data.filter((c) => c.serial_number === inputValue);
     setSerialNumberData(customerObj);
     setInputValue('');
-    setShowInpuField(false);
+    setShowInpuField(false); 
+    
   };
 
   const onChangeHandler = (e) => {
@@ -60,7 +69,9 @@ const StaffDashboard = () => {
           <InputField
             onChangeHandler={onChangeHandler}
             inputValue={inputValue}
-            label={'Enter Serial Number'}
+            label={'Enter Serial Number'} 
+            invalidInput={invalidInput} 
+            width={"210px"}
           />{' '}
           <ActionButton text={'Enter'} onClickHandler={onEnterHandler} />{' '}
         </>
