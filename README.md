@@ -12,7 +12,7 @@
   - The user can sort the machines by name
 
 #### In the service staff view:
-  - The user should enter the serial number for a machine to get it's full data in 
+  - When the user seaarch for a machine with it's serial number ,A QR code appears to give the user the option to either scan the QR code and search for       the serial number on a public url belongs to zeppelin(currently we google.com), or search in the internal system 
   - If the user entered an invalid serial number, an error message will appear
   - The user can re-enter another serial number
-  - When the user seaarch for a machine with it's serial number ,A QR code appears to give the user the option to either scan the QR code and search for      the serial number on a public url belongs to zeppelin(currently we google.com), or search in the internal system 
+ 
