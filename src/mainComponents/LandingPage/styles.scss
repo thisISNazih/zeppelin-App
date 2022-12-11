@@ -1,0 +1,19 @@
+.landingPage-wrapper {
+    background-color: whitesmoke;  
+    display: flex;
+    align-items: center;  
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    .buttons-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        gap: 20px;
+    }
+    img {
+        fill: #27166f; 
+        margin-bottom: 2rem; 
+        width: 300px;
+    }
+}

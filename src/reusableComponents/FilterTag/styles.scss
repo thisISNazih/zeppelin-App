@@ -1,0 +1,14 @@
+.filterTag {
+  padding: 0.3rem;
+  background-color: #827ba3;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  span {
+    padding: 0.2rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
